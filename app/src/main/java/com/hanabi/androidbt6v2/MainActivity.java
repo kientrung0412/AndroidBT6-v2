@@ -81,12 +81,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             setStyleTwSelect(i, chars);
         }
         btnContinue.setVisibility(View.INVISIBLE);
-        btnContinue.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                continueGame();
-            }
-        });
+        btnContinue.setOnClickListener(this);
 
     }
 
@@ -136,18 +131,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        if (count < nameImg.length()) {
-            TextView textView = (TextView) view;
-            textView.setVisibility(View.INVISIBLE);
-            String character = textView.getText().toString();
-            result += character;
-            TextView textView1 = findViewById(arrIdBtnShow[count]);
-            textView1.setText(character);
-            count++;
-            //kiem tra thang thua
-            if (count == nameImg.length()) {
-                isWin();
-            }
+        switch (view.getId()) {
+            case R.id.btn_continue:
+                continueGame();
+                break;
+            default:
+                if (count < nameImg.length()) {
+                    Toast.makeText(this, view.getId() + "", Toast.LENGTH_SHORT).show();
+                    TextView textView = (TextView) view;
+                    textView.setVisibility(View.INVISIBLE);
+                    String character = textView.getText().toString();
+                    result += character;
+                    TextView textView1 = findViewById(arrIdBtnShow[count]);
+                    textView1.setText(character);
+                    count++;
+                    //kiem tra thang thua
+                    if (count == nameImg.length()) {
+                        isWin();
+                    }
+                }
+                break;
         }
     }
 

@@ -43,13 +43,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void initViews() {
         //mapping đến view
-        arrIdImg = getResources().obtainTypedArray(R.array.images);
+        arrIdImg = getResources().obtainTypedArray(R.array.images); // xem file values/arrays để hiểu
         tvHeart = findViewById(R.id.tv_heart);
         tvScore = findViewById(R.id.tv_score);
         glShows = findViewById(R.id.gr_btn_show);
         glSelect = findViewById(R.id.gr_btn_select);
         imgvPlay = findViewById(R.id.imgv_play);
         btnContinue = findViewById(R.id.btn_continue);
+        btnContinue.setOnClickListener(this);
 
         reStartGame();
 
@@ -61,7 +62,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         glSelect.removeAllViews();
         glShows.removeAllViews();
         btnContinue.setVisibility(View.INVISIBLE);
-        btnContinue.setOnClickListener(this);
         createPlay();
     }
 
@@ -155,22 +155,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         idImg = id;
         idImg = arrIdImg.getResourceId(idImg, -1);
+
         //set anh
         Glide.with(this).load(idImg).into(imgvPlay);
         //lấy tên ảnh
         nameImg = getResources().getResourceEntryName(idImg);
-        //thiết lập số ô điền
-        arrIdBtnShow = new int[nameImg.length()];
-        //Hiển thị số ô chữ
-        for (int i = 0; i < nameImg.length(); i++) {
-            setStyleTvShow(i);
-        }
         //String to ArrayList
         String[] charArray = nameImg.split("");
         ArrayList<String> chars = new ArrayList<>(Arrays.asList(charArray));
         chars.remove(0);
         // sort ramdom
         Collections.shuffle(chars);
+        //thiết lập số ô điền
+        arrIdBtnShow = new int[nameImg.length()];
+
+
+        //Hiển thị số ô chữ
+        for (int i = 0; i < nameImg.length(); i++) {
+            setStyleTvShow(i);
+        }
         //Hiển thị ô trọn chữ
         for (int i = 0; i < 12; i++) {
             setStyleTvSelect(i, chars);

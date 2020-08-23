@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <integer-array name="images">
+        <item>@drawable/songsong</item>
+        <item>@drawable/kiemchuyen</item>
+        <item>@drawable/masat</item>
+        <item>@drawable/hongtam</item>
+        <item>@drawable/giandiep</item>
+        <item>@drawable/danong</item>
+        <item>@drawable/chieutre</item>
+        <item>@drawable/cattuong</item>
+        <item>@drawable/hoidong</item>
+        <item>@drawable/baocao</item>
+        <item>@drawable/danhlua</item>
+        <item>@drawable/aomua</item>
+        <item>@drawable/xedapdien</item>
+        <item>@drawable/xakep</item>
+        <item>@drawable/tranhthu</item>
+        <item>@drawable/quyhang</item>
+        <item>@drawable/oto</item>
+        <item>@drawable/totien</item>
+        <item>@drawable/vuonbachthu</item>
+        <item>@drawable/giangmai</item>
+        <item>@drawable/canthiep</item>
+        <item>@drawable/xaphong</item>
+        <item>@drawable/vuaphaluoi</item>
+        <item>@drawable/tohoai</item>
+        <item>@drawable/tichphan</item>
+        <item>@drawable/thothe</item>
+        <item>@drawable/thattinh</item>
+        <item>@drawable/nambancau</item>
+        <item>@drawable/lancan</item>
+        <item>@drawable/khoailang</item>
+        <item>@drawable/lancan</item>
+    </integer-array>
+
+</resources>

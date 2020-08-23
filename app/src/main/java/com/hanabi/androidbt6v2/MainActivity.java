@@ -74,14 +74,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void setStyleTvSelect(int i, ArrayList<String> chars) {
-        TextView textView = new TextView(this);
+        TextView textView = (TextView) getLayoutInflater().inflate(R.layout.text_view_item, null);// sử dụng text_view_item.xml làm style
         if (i < nameImg.length()) {
             textView.setText(chars.get(i));
         } else {
             char character = (char) (random.nextInt(25) + 97);
             textView.setText(character + "");
         }
-        setStyleTv(textView, R.drawable.ic_tile_hover);
         textView.setOnClickListener(this);
         //Thêm nút
         glSelect.addView(textView);
@@ -89,20 +88,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void setStyleTvShow(int i) {
         //tạo nút mới và xác định vị trí thuộc vào
-        TextView textView = new TextView(this);
-        setStyleTv(textView, R.drawable.ic_tile_hover);
+        TextView textView = (TextView) getLayoutInflater().inflate(R.layout.text_view_item, null);
         textView.setId(9999900 + i);
         arrIdBtnShow[i] = textView.getId();
         //Thêm nút
         glShows.addView(textView);
     }
 
-    private void setStyleTv(TextView view, int background) {
-        view.setGravity(Gravity.CENTER);
-        view.setTextSize(24);
-        view.setTextColor(Color.WHITE);
-        view.setBackgroundResource(background);
-    }
 
     @Override
     public void onClick(View view) {
